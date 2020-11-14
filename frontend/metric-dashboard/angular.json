@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "metric-dashboard"
+    }
+  },
+  "defaultProject": "metric-dashboard",
+  "cli": {
+    "analytics": "e343f43c-1c3f-433b-80f9-fcf5316ed94c"
+  }
 }
