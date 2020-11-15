@@ -1,1 +1,34 @@
-<p>machine-dashboard works!</p>
+<!-- ############# MACHINE SECTION ############# -->
+<div class="row">
+  <h2>{{ machineId }}</h2>
+</div>
+<div class="row">
+  <div class="col-3">
+    <app-line-chart
+      [chartTitle]="pressChartTitle"
+      [lineChartData]="pressLineChartData"
+      [lineChartLabels]="pressLineChartLabels"
+    ></app-line-chart>
+  </div>
+  <div class="col-3">
+    <app-line-chart
+      [chartTitle]="tempChartTitle"
+      [lineChartData]="tempLineChartData"
+      [lineChartLabels]="tempLineChartLabels"
+    ></app-line-chart>
+  </div>
+  <div class="col-3">
+    <app-line-chart
+      [chartTitle]="omegaChartTitle"
+      [lineChartData]="omegaLineChartData"
+      [lineChartLabels]="omegaLineChartLabels"
+    ></app-line-chart>
+  </div>
+  <div class="col-3">
+    <app-line-chart
+      [chartTitle]="speedChartTitle"
+      [lineChartData]="speedLineChartData"
+      [lineChartLabels]="speedLineChartLabels"
+    ></app-line-chart>
+  </div>
+</div>

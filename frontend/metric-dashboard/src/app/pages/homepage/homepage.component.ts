@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  machineName = 'Volvo V40';
+  // machineName = 'Volvo V40';
+  machineId1 = 'Volvo V40';
+  machineId2 = 'Porsche 911';
+  machineId3 = 'Audi A6';
 
   constructor() {}
 

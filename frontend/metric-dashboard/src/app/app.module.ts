@@ -8,6 +8,7 @@ import {
   RxStompService,
   rxStompServiceFactory
 } from '@stomp/ng2-stompjs';
+import { ChartsModule } from 'ng2-charts';
 import { myRxStompConfig } from './my-rx-stomp.config';
 import { MessagesComponent } from './messages/messages.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
@@ -16,6 +17,7 @@ import { FooterComponent } from './ui-template/footer/footer.component';
 import { HeaderComponent } from './ui-template/header/header.component';
 import { LayoutComponent } from './ui-template/layout/layout.component';
 import { MachineDashboardComponent } from './components/machine-dashboard/machine-dashboard.component';
+import { LineChartComponent } from './components/line-chart/line-chart.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,10 @@ import { MachineDashboardComponent } from './components/machine-dashboard/machin
     FooterComponent,
     HeaderComponent,
     LayoutComponent,
-    MachineDashboardComponent
+    MachineDashboardComponent,
+    LineChartComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ChartsModule],
   providers: [
     {
       provide: InjectableRxStompConfig,
