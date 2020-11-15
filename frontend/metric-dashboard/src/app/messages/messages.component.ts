@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { RxStompService } from '@stomp/ng2-stompjs';
 import { Message } from '@stomp/stompjs';
 import { Subscription } from 'rxjs';
@@ -10,6 +10,8 @@ import { WheelMetric } from '../models/whellmetric';
   styleUrls: ['./messages.component.scss']
 })
 export class MessagesComponent implements OnInit, OnDestroy {
+  @Input() machineName: string;
+
   public receivedMessages: WheelMetric[] = [];
   private topicSubscription: Subscription;
 

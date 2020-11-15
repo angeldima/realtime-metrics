@@ -15,6 +15,7 @@ import { InfoComponent } from './pages/info/info.component';
 import { FooterComponent } from './ui-template/footer/footer.component';
 import { HeaderComponent } from './ui-template/header/header.component';
 import { LayoutComponent } from './ui-template/layout/layout.component';
+import { MachineDashboardComponent } from './components/machine-dashboard/machine-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LayoutComponent } from './ui-template/layout/layout.component';
     InfoComponent,
     FooterComponent,
     HeaderComponent,
-    LayoutComponent
+    LayoutComponent,
+    MachineDashboardComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [
