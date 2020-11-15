@@ -10,9 +10,22 @@ import {
 } from '@stomp/ng2-stompjs';
 import { myRxStompConfig } from './my-rx-stomp.config';
 import { MessagesComponent } from './messages/messages.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { InfoComponent } from './pages/info/info.component';
+import { FooterComponent } from './ui-template/footer/footer.component';
+import { HeaderComponent } from './ui-template/header/header.component';
+import { LayoutComponent } from './ui-template/layout/layout.component';
 
 @NgModule({
-  declarations: [AppComponent, MessagesComponent],
+  declarations: [
+    AppComponent,
+    MessagesComponent,
+    HomepageComponent,
+    InfoComponent,
+    FooterComponent,
+    HeaderComponent,
+    LayoutComponent
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [
     {

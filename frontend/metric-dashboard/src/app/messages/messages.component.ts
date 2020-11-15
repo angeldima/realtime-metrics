@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RxStompService } from '@stomp/ng2-stompjs';
 import { Message } from '@stomp/stompjs';
 import { Subscription } from 'rxjs';
-import { WheelMetric } from '../model/whellmetric';
+import { WheelMetric } from '../models/whellmetric';
 
 @Component({
   selector: 'app-messages',
@@ -20,7 +20,8 @@ export class MessagesComponent implements OnInit, OnDestroy {
       .watch('/topic/demo')
       .subscribe((message: Message) => {
         console.log(message.body);
-        this.receivedMessages.push(message.body);
+        let msg = JSON.parse(message.body);
+        this.receivedMessages.push(msg['Front Rigth']);
       });
   }
 
