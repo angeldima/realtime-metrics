@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RxStompService } from '@stomp/ng2-stompjs';
 import { Message } from '@stomp/stompjs';
 import { Subscription } from 'rxjs';
+import { WheelMetric } from '../model/whellmetric';
 
 @Component({
   selector: 'app-messages',
@@ -9,7 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./messages.component.scss']
 })
 export class MessagesComponent implements OnInit, OnDestroy {
-  public receivedMessages: string[] = [];
+  public receivedMessages: WheelMetric[] = [];
   private topicSubscription: Subscription;
 
   constructor(private rxStompService: RxStompService) {}
@@ -18,6 +19,7 @@ export class MessagesComponent implements OnInit, OnDestroy {
     this.topicSubscription = this.rxStompService
       .watch('/topic/demo')
       .subscribe((message: Message) => {
+        console.log(message.body);
         this.receivedMessages.push(message.body);
       });
   }
