@@ -1,31 +1,29 @@
 package com.realtime.metric.collector.model;
 
-public class MetricPayload {
+import java.util.Date;
 
-	private String timestamp;
+public class WheelMetric {
+
+	private Date timestamp;
 	private Float press;
-	private String position;
 	private Float temp;
 	private Float omega;
 	private Float speed;
-	private String car_id;
 
-	public MetricPayload(String timestamp, Float press, String position, Float temp, Float omega, Float speed,
-			String car_id) {
+	public WheelMetric(Date timestamp, Float press, Float temp, Float omega, Float speed) {
+		super();
 		this.timestamp = timestamp;
 		this.press = press;
-		this.position = position;
 		this.temp = temp;
 		this.omega = omega;
 		this.speed = speed;
-		this.car_id = car_id;
 	}
 
-	public String getTimestamp() {
+	public Date getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(String timestamp) {
+	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
 	}
 
@@ -35,14 +33,6 @@ public class MetricPayload {
 
 	public void setPress(Float press) {
 		this.press = press;
-	}
-
-	public String getPosition() {
-		return position;
-	}
-
-	public void setPosition(String position) {
-		this.position = position;
 	}
 
 	public Float getTemp() {
@@ -67,14 +57,6 @@ public class MetricPayload {
 
 	public void setSpeed(Float speed) {
 		this.speed = speed;
-	}
-
-	public String getCar_id() {
-		return car_id;
-	}
-
-	public void setCar_id(String car_id) {
-		this.car_id = car_id;
 	}
 
 }
