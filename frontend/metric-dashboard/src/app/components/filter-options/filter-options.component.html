@@ -1,0 +1,26 @@
+<form [formGroup]="machineFormGroup">
+  <label><input type="checkbox" formControlName="volvoV40" />Volvo V40</label
+  ><br />
+  <label
+    ><input type="checkbox" formControlName="porsche911" />Porsche 911</label
+  ><br />
+  <label><input type="checkbox" formControlName="audiA6" />Audi A6</label><br />
+</form>
+
+<form [formGroup]="metricFormGroup">
+  <label><input type="checkbox" formControlName="press" />Pessure</label><br />
+  <label><input type="checkbox" formControlName="temp" />Temperature</label
+  ><br />
+  <label
+    ><input type="checkbox" formControlName="omega" />Angular velocity</label
+  ><br />
+  <label><input type="checkbox" formControlName="speed" />Speed</label><br />
+</form>
+
+<button
+  type="button"
+  class="btn btn-secondary filter-button"
+  (click)="onSubmit()"
+>
+  Confirm
+</button>

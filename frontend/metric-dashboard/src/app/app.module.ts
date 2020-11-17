@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { HeaderComponent } from './ui-template/header/header.component';
 import { LayoutComponent } from './ui-template/layout/layout.component';
 import { MachineDashboardComponent } from './components/machine-dashboard/machine-dashboard.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
+import { FilterOptionsComponent } from './components/filter-options/filter-options.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,10 @@ import { LineChartComponent } from './components/line-chart/line-chart.component
     HeaderComponent,
     LayoutComponent,
     MachineDashboardComponent,
-    LineChartComponent
+    LineChartComponent,
+    FilterOptionsComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, ChartsModule],
+  imports: [BrowserModule, AppRoutingModule, ChartsModule, ReactiveFormsModule],
   providers: [
     {
       provide: InjectableRxStompConfig,

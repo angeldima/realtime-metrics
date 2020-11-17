@@ -3,18 +3,27 @@
 <button
   type="button"
   class="btn btn-secondary filter-button"
-  (click)="setupFilter()"
+  (click)="setupFilterOptions()"
 >
   Setup filter
 </button>
 
 <br />
+
+<app-filter-options
+  *ngIf="filterOptionsVisible"
+  (selectedFilterOptions)="onSelectedFilterOptions($event)"
+></app-filter-options>
+
 <!-- <app-messages [machineName]="machineName"></app-messages> -->
 <!-- ############# MACHINE SECTION ############# -->
-<app-machine-dashboard
-  *ngFor="let machineId of selectedMachineIds"
-  [machineId]="machineId"
-></app-machine-dashboard>
+<div *ngIf="!filterOptionsVisible">
+  <app-machine-dashboard
+    *ngFor="let machineId of selectedMachineIds"
+    [machineId]="machineId"
+    [selectedMetrics]="selectedMetrics"
+  ></app-machine-dashboard>
+</div>
 
 <br />
 <br />

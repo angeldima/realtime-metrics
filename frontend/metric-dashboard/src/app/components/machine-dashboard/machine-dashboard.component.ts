@@ -12,6 +12,7 @@ import { WheelMetric } from 'src/app/models/whellmetric';
 })
 export class MachineDashboardComponent implements OnInit, OnDestroy {
   @Input() machineId: string;
+  @Input() selectedMetrics: string[];
 
   private topicSubscription: Subscription;
   // Define parameter to inject in single machine chart
@@ -96,5 +97,12 @@ export class MachineDashboardComponent implements OnInit, OnDestroy {
     this.speedLineChartData[1].data.push(msgPayload['Front Left'].speed);
     this.speedLineChartData[2].data.push(msgPayload['Rear Rigth'].speed);
     this.speedLineChartData[3].data.push(msgPayload['Rear Left'].speed);
+  }
+
+  isSelectedMetric(metric: string) {
+    if (this.selectedMetrics.includes(metric)) {
+      return true;
+    }
+    return false;
   }
 }
