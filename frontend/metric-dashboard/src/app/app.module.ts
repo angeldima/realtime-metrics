@@ -20,6 +20,7 @@ import { LayoutComponent } from './ui-template/layout/layout.component';
 import { MachineDashboardComponent } from './components/machine-dashboard/machine-dashboard.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { FilterOptionsComponent } from './components/filter-options/filter-options.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,13 @@ import { FilterOptionsComponent } from './components/filter-options/filter-optio
     LineChartComponent,
     FilterOptionsComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, ChartsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ChartsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
   providers: [
     {
       provide: InjectableRxStompConfig,

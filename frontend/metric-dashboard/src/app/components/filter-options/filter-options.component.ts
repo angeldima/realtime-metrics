@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FilterOptions } from 'src/app/models/filter-options';
+import { MachineService } from 'src/app/services/machine.service';
 
 @Component({
   selector: 'app-filter-options',
@@ -10,14 +11,11 @@ import { FilterOptions } from 'src/app/models/filter-options';
 export class FilterOptionsComponent implements OnInit {
   @Output() selectedFilterOptions = new EventEmitter<FilterOptions>();
   // Add API call to get allMachines list
+  allMachines = [];
   selectedMachines = [];
   selectedMetrics = [];
 
-  machineFormGroup = new FormGroup({
-    volvoV40: new FormControl(true),
-    porsche911: new FormControl(true),
-    audiA6: new FormControl(true)
-  });
+  machineFormGroup: FormGroup = new FormGroup({});
 
   metricFormGroup = new FormGroup({
     press: new FormControl(true),
@@ -26,19 +24,34 @@ export class FilterOptionsComponent implements OnInit {
     speed: new FormControl(true)
   });
 
-  constructor() {}
+  constructor(private machineService: MachineService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.machineService.findAll().subscribe(resp => {
+      const group = {};
+      resp.forEach(m => {
+        group[this.prepareFormControlName(m)] = new FormControl(true);
+      });
+      console.log(group);
+      this.machineFormGroup = new FormGroup(group);
+      this.allMachines = resp;
+    });
+  }
+
+  prepareFormControlName(name: string) {
+    return name.toLowerCase().replace(/\s/g, '');
+  }
 
   onSubmit() {
+    // TODO - Dinamicizzare
     // Filter selected machines
-    if (this.machineFormGroup.get('volvoV40').value) {
+    if (this.machineFormGroup.get('volvov40').value) {
       this.selectedMachines.push('Volvo V40');
     }
     if (this.machineFormGroup.get('porsche911').value) {
       this.selectedMachines.push('Porsche 911');
     }
-    if (this.machineFormGroup.get('audiA6').value) {
+    if (this.machineFormGroup.get('audia6').value) {
       this.selectedMachines.push('Audi A6');
     }
 
