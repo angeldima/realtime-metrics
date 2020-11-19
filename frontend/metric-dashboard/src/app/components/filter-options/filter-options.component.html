@@ -6,12 +6,14 @@
         <h5 class="card-title">Machines</h5>
         <form [formGroup]="machineFormGroup">
           <div *ngFor="let m of allMachines">
-            <label
-              ><input
+            <label class="container"
+              >{{ m }}
+              <input
                 type="checkbox"
                 formControlName="{{ prepareFormControlName(m) }}"
-              />{{ m }}</label
-            ><br />
+              />
+              <span class="checkmark"></span>
+            </label>
           </div>
         </form>
       </div>
@@ -21,26 +23,35 @@
       <div class="card-body">
         <h5 class="card-title">Metrics</h5>
         <form [formGroup]="metricFormGroup">
-          <label><input type="checkbox" formControlName="press" />Pessure</label
-          ><br />
-          <label
-            ><input type="checkbox" formControlName="temp" />Temperature</label
-          ><br />
-          <label
-            ><input type="checkbox" formControlName="omega" />Angular
-            velocity</label
-          ><br />
-          <label><input type="checkbox" formControlName="speed" />Speed</label
-          ><br />
+          <label class="container"
+            >Pessure
+            <input type="checkbox" formControlName="press" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container"
+            >Temperature
+            <input type="checkbox" formControlName="temp" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container"
+            >Angular velocity
+            <input type="checkbox" formControlName="omega" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container"
+            >Speed
+            <input type="checkbox" formControlName="speed" />
+            <span class="checkmark"></span>
+          </label>
         </form>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-body">
+      <div class="card-body button-wrapper">
         <button
           type="button"
-          class="btn btn-secondary filter-button"
+          class="button confirm-button"
           (click)="onSubmit()"
         >
           Confirm

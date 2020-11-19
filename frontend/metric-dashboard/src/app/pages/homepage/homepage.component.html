@@ -2,7 +2,8 @@
 <br />
 <button
   type="button"
-  class="btn btn-secondary filter-button"
+  class="button filter-button"
+  *ngIf="!filterOptionsVisible"
   (click)="setupFilterOptions()"
 >
   Setup filter
