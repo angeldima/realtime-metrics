@@ -65,9 +65,14 @@ public class MetricService {
 		simulateMetrics("audi_dataset.csv");
 	}
 	
-	@Scheduled(initialDelay = 6000, fixedDelay = 999999999)
+	@Scheduled(initialDelay = 3000, fixedDelay = 999999999)
 	private void simulatePorsche() {
 		simulateMetrics("porsche_dataset.csv");
+	}
+	
+	@Scheduled(initialDelay = 2000, fixedDelay = 999999999)
+	private void simulateRenault() {
+		simulateMetrics("renault_dataset.csv");
 	}
 
 	private void simulateMetrics(String csvName) {
@@ -84,7 +89,7 @@ public class MetricService {
 					manageMachineMetric(groupMetrics);
 					groupCounter = 0;
 					groupMetrics = new ArrayList<>();
-					Thread.sleep(4000);
+					Thread.sleep(6000);
 				}
 			}
 		} catch (FileNotFoundException e) {
