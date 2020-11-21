@@ -1,4 +1,4 @@
-export class WheelMetric {
+export class TyreMetric {
   timestamp: Date;
   press: number;
   temp: number;

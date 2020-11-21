@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { RxStompService } from '@stomp/ng2-stompjs';
 import { Message } from '@stomp/stompjs';
 import { Subscription } from 'rxjs';
-import { WheelMetric } from '../models/whellmetric';
+import { TyreMetric } from '../models/tyremetric';
 
 @Component({
   selector: 'app-messages',
@@ -12,7 +12,7 @@ import { WheelMetric } from '../models/whellmetric';
 export class MessagesComponent implements OnInit, OnDestroy {
   @Input() machineName: string;
 
-  public receivedMessages: WheelMetric[] = [];
+  public receivedMessages: TyreMetric[] = [];
   private topicSubscription: Subscription;
 
   constructor(private rxStompService: RxStompService) {}

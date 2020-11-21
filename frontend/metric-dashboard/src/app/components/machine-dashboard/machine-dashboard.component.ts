@@ -3,7 +3,7 @@ import { RxStompService } from '@stomp/ng2-stompjs';
 import { Subscription } from 'rxjs';
 import { Message } from '@stomp/stompjs';
 import { ChartDataSets } from 'chart.js';
-import { WheelMetric } from 'src/app/models/whellmetric';
+import { TyreMetric } from 'src/app/models/tyremetric';
 
 @Component({
   selector: 'app-machine-dashboard',
@@ -60,7 +60,7 @@ export class MachineDashboardComponent implements OnInit, OnDestroy {
       .subscribe((message: Message) => {
         console.log(message.body);
         const msg = JSON.parse(message.body);
-        this.updateCharts(msg);
+        this.updateCharts(msg.tyreMetrics);
         // this.pressLineChartData[0].data.push(msg['Front Rigth'].press);
         // this.pressLineChartLabels.push(msg['Front Rigth'].timestamp);
         // console.log(this.pressLineChartData[0].data);
@@ -71,7 +71,7 @@ export class MachineDashboardComponent implements OnInit, OnDestroy {
     this.topicSubscription.unsubscribe();
   }
 
-  updateCharts(msgPayload: Map<string, WheelMetric>) {
+  updateCharts(msgPayload: Map<string, TyreMetric>) {
     const newTimestamp = msgPayload['Front Rigth'].timestamp.substring(11, 19);
     this.pressLineChartLabels.push(newTimestamp);
     this.tempLineChartLabels.push(newTimestamp);
