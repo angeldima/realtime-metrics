@@ -2,7 +2,7 @@ package com.realtime.metric.collector.model;
 
 import java.util.Date;
 
-public class WheelMetric {
+public class TyreMetric {
 
 	private Date timestamp;
 	private Float press;
@@ -10,7 +10,7 @@ public class WheelMetric {
 	private Float omega;
 	private Float speed;
 
-	public WheelMetric(Date timestamp, Float press, Float temp, Float omega, Float speed) {
+	public TyreMetric(Date timestamp, Float press, Float temp, Float omega, Float speed) {
 		super();
 		this.timestamp = timestamp;
 		this.press = press;
