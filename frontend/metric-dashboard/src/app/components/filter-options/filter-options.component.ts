@@ -10,7 +10,8 @@ import { MachineService } from 'src/app/services/machine.service';
 })
 export class FilterOptionsComponent implements OnInit {
   @Output() selectedFilterOptions = new EventEmitter<FilterOptions>();
-  // Add API call to get allMachines list
+  @Output() onBackButton = new EventEmitter<boolean>();
+
   allMachines = [];
   selectedMachines = [];
   selectedMetrics = [];
@@ -43,17 +44,13 @@ export class FilterOptionsComponent implements OnInit {
   }
 
   onSubmit() {
-    // TODO - Dinamicizzare
     // Filter selected machines
-    if (this.machineFormGroup.get('volvov40').value) {
-      this.selectedMachines.push('Volvo V40');
-    }
-    if (this.machineFormGroup.get('porsche911').value) {
-      this.selectedMachines.push('Porsche 911');
-    }
-    if (this.machineFormGroup.get('audia6').value) {
-      this.selectedMachines.push('Audi A6');
-    }
+    this.allMachines.forEach(m => {
+      const elementName = this.prepareFormControlName(m);
+      if (this.machineFormGroup.get(elementName).value) {
+        this.selectedMachines.push(m);
+      }
+    });
 
     // Filter selected metrics
     if (this.metricFormGroup.get('press').value) {
@@ -73,5 +70,9 @@ export class FilterOptionsComponent implements OnInit {
       machines: this.selectedMachines,
       metrics: this.selectedMetrics
     });
+  }
+
+  onBack() {
+    this.onBackButton.emit(false);
   }
 }

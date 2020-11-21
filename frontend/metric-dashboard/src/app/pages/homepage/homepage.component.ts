@@ -20,9 +20,12 @@ export class HomepageComponent implements OnInit {
   }
 
   onSelectedFilterOptions(resp: FilterOptions) {
-    console.log(resp);
     this.selectedMachineIds = resp.machines;
     this.selectedMetrics = resp.metrics;
     this.filterOptionsVisible = !this.filterOptionsVisible;
+  }
+
+  onBackButton(resp: boolean) {
+    this.filterOptionsVisible = resp;
   }
 }

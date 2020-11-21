@@ -6,17 +6,18 @@
   *ngIf="!filterOptionsVisible"
   (click)="setupFilterOptions()"
 >
-  Setup filter
+  Setup Dashboard
 </button>
 
 <br />
 
+<!-- ############# FILTER SECTION ############# -->
 <app-filter-options
   *ngIf="filterOptionsVisible"
   (selectedFilterOptions)="onSelectedFilterOptions($event)"
+  (onBackButton)="onBackButton($event)"
 ></app-filter-options>
 
-<!-- <app-messages [machineName]="machineName"></app-messages> -->
 <!-- ############# MACHINE SECTION ############# -->
 <div *ngIf="!filterOptionsVisible">
   <app-machine-dashboard

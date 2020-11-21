@@ -3,7 +3,7 @@
   <div class="col-4">
     <div class="card">
       <div class="card-body" *ngIf="machineFormGroup !== null">
-        <h5 class="card-title">Machines</h5>
+        <h2 class="card-title">Machines</h2>
         <form [formGroup]="machineFormGroup">
           <div *ngFor="let m of allMachines">
             <label class="container"
@@ -21,10 +21,10 @@
 
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Metrics</h5>
+        <h2 class="card-title">Metrics</h2>
         <form [formGroup]="metricFormGroup">
           <label class="container"
-            >Pessure
+            >Pressure
             <input type="checkbox" formControlName="press" />
             <span class="checkmark"></span>
           </label>
@@ -49,6 +49,13 @@
 
     <div class="card">
       <div class="card-body button-wrapper">
+        <button
+          type="button"
+          class="button back-button mr50"
+          (click)="onSubmit()"
+        >
+          Back
+        </button>
         <button
           type="button"
           class="button confirm-button"

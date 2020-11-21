@@ -16,7 +16,7 @@ export class MachineDashboardComponent implements OnInit, OnDestroy {
 
   private topicSubscription: Subscription;
   // Define parameter to inject in single machine chart
-  pressChartTitle = 'Pessure';
+  pressChartTitle = 'Pressure';
   pressLineChartLabels = [];
   pressLineChartData: ChartDataSets[] = [
     { data: [], label: 'front-dx' },
