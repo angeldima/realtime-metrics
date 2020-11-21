@@ -2,8 +2,9 @@ package com.realtime.metric.collector.service;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -77,7 +78,8 @@ public class MetricService {
 
 	private void simulateMetrics(String csvName) {
 		List<List<String>> groupMetrics = new ArrayList<>();
-		try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/" + csvName))) {
+		InputStream is = getClass().getResourceAsStream("/" + csvName);
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
 			String line;
 			Integer groupCounter = 0;
 
@@ -89,7 +91,7 @@ public class MetricService {
 					manageMachineMetric(groupMetrics);
 					groupCounter = 0;
 					groupMetrics = new ArrayList<>();
-					Thread.sleep(6000);
+					Thread.sleep(15000);
 				}
 			}
 		} catch (FileNotFoundException e) {

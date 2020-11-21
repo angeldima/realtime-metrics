@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.realtime.metric.collector.service.MachineService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class MachineController {
 	
 	@Autowired
