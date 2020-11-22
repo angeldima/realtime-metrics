@@ -1,6 +1,4 @@
-FROM httpd:alpine
+FROM nginx:1.17.1-alpine
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY ./dist/metric-dashboard /usr/share/nginx/html
 
-MAINTAINER Angelo <email@somedomain.com>
-
-RUN rm -r /usr/local/apache2/htdocs/*
-COPY ./dist/metric-dashboard/* /usr/local/apache2/htdocs/

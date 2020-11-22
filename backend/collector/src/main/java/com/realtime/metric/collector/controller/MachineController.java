@@ -17,6 +17,7 @@ public class MachineController {
 	private MachineService machineService;
 
 	@GetMapping("/machines")
+	@CrossOrigin(origins = "*")
     public List<String> getMachines() {
 		return machineService.getAvailableMachines();
     }
