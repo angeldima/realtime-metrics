@@ -34,7 +34,7 @@ public class MetricService {
 		applicationEventPublisher.publishEvent(event);
 	}
 
-	private void manageMachineMetric(List<List<String>> groupMetrics) {
+	public void manageMachineMetric(List<List<String>> groupMetrics) {
 		Date currentDate = new Date();
 		MachineMetric mm = new MachineMetric();
 		String machineId = groupMetrics.get(0).get(7);
@@ -46,11 +46,11 @@ public class MetricService {
 		publishMachineMetricEvent(machineId, mm);
 	}
 
-	private void manageTyreMetric(MachineMetric mm, Date currentDate, List<String> tyreMetricList) {
+	public void manageTyreMetric(MachineMetric mm, Date currentDate, List<String> tyreMetricList) {
 		String position = tyreMetricList.get(3);
-		Float pressure = Float.parseFloat(tyreMetricList.get(2));
+		Float pressure = Float.parseFloat(tyreMetricList.get(2)) < 0F? 0f : Float.parseFloat(tyreMetricList.get(2));
 		Float temperature = Float.parseFloat(tyreMetricList.get(4));
-		Float angularVelocity = Float.parseFloat(tyreMetricList.get(5));
+		Float angularVelocity = Float.parseFloat(tyreMetricList.get(5)) < 0F? 0f : Float.parseFloat(tyreMetricList.get(5));
 		Float speed = Float.parseFloat(tyreMetricList.get(6));
 		TyreMetric tyreMetric = new TyreMetric(currentDate, pressure, temperature, angularVelocity, speed);
 		mm.getTyreMetrics().put(position, tyreMetric);
