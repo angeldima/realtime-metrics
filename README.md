@@ -1,4 +1,6 @@
 # realtime-metrics
+![Image of Design](/dockerstack/general_design.png?raw=true "Optional Title")
+
 Required:
 * jdk11
 * maven
